@@ -1,5 +1,7 @@
 <?php
 
+require_once 'lib/shared/service.class.php';
+
 class Quote extends Service {
   private $_checklist;
   private $_approvalDate;

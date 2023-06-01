@@ -1,5 +1,7 @@
 <?php
 
+require_once 'contact.class.php';
+
 abstract class Person extends Contact {
   protected $_gender;
 	protected $_nationality;

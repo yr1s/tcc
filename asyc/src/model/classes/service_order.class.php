@@ -1,5 +1,7 @@
 <?php
 
+require_once 'lib/shared/service.class.php';
+
 class ServiceOrder extends Service {
   private $_vehicle;
   private $_labours;

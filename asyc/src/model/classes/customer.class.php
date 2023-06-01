@@ -1,5 +1,7 @@
 <?php
 
+require_once 'lib/shared/person.class.php';
+
 class Customer extends Person {
   public function getAllData() : array {
     return [

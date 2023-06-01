@@ -1,5 +1,7 @@
 <?php
 
+require_once 'lib/shared/contact.class.php';
+
 class Supplier extends Contact {
   private $_CNPJ;
   private $_description;
