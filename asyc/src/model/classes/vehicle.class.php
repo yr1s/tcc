@@ -1,8 +1,8 @@
 <?php
 
 class Vehicle {
-    private $_model;
-    private $_brand;
+  private $_model;
+  private $_brand;
     private $_color;
     private $_licensePlate;
     private $_mileage;
