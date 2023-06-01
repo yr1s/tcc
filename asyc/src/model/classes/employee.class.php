@@ -52,7 +52,7 @@ class Employee extends Person {
 		$this->_commission = (double) Regex::validate($commission, "/^[+-]?([0-9]*[.])?[0-9]+$/");
 	}
 
-    private function setCpf($CPF) : void {
+  private function setCpf($CPF) : void {
 		$this->_CPF = Regex::validate($CPF, "/^[0-9]{11}$/");
 	}
 
@@ -79,7 +79,7 @@ class Employee extends Person {
 		$this->setPosition($position);
 		$this->setCommission($commission);
 
-        Crud::create(get_class($this), $this->getAllData());
+    Crud::create(get_class($this), $this->getAllData());
 	}
 
 	public function __construct() { Crud::getConnection(); }

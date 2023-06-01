@@ -1,4 +1,5 @@
 <?php
+
 abstract class Transaction {
   private $_cost;
   private $_description;

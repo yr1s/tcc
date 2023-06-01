@@ -1,7 +1,7 @@
 <?php
 
 abstract class Contact {
-    protected $_name;
+  protected $_name;
 	protected $_telephone;
 	protected $_cellphone;
 	protected $_email;
@@ -12,11 +12,11 @@ abstract class Contact {
 	protected $_neighborhood;
 	protected $_reference;
 
-    public function wipeAllData() : void {
-        foreach($this as $property => $_) {
-            $this->$property = null;
-        }
+  public function wipeAllData() : void {
+    foreach($this as $property => $_) {
+      $this->$property = null;
     }
+  }
 
 	protected function getName() {
 		return $this->_name;
@@ -58,8 +58,8 @@ abstract class Contact {
 		return $this->_reference;
 	}
 
-    protected function setName($name) : void {
-		$this->_name = Regex::validate($name, "/^[\p{Ll}\p{Lu}\p{M}\s]+$/");	
+  protected function setName($name) : void {
+    $this->_name = Regex::validate($name, "/^[\p{Ll}\p{Lu}\p{M}\s]+$/");	
 	}	
 
 	protected function setTelephone($telephone) : void {

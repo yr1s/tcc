@@ -1,13 +1,13 @@
 <?php
 
 abstract class Person extends Contact {
-    protected $_gender;
+  protected $_gender;
 	protected $_nationality;
 	protected $_birthdate;
 	protected $_RG;
 	protected $_CPF;
 	
-    abstract protected function setCpf();
+  abstract protected function setCpf();
 
 	protected function getGender() {
 		return $this->_gender;
@@ -29,7 +29,7 @@ abstract class Person extends Contact {
 		return $this->_CPF;
 	}
 
-    protected function setGender($gender) : void {
+  protected function setGender($gender) : void {
 		$this->_gender = Regex::validate($gender, "/^([m|f]?|[M|F]?)+$/");
 	}
 
