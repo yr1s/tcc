@@ -4,6 +4,7 @@ class Transaction {
   private $_cost;
   private $_description;
   private $_transactionType;
+  private $_cashFlow;
   private $_destinationAccount;
   private $_creditor;
   private $_category;
@@ -13,6 +14,7 @@ class Transaction {
   private $_isInstallment;
   private $_qtdeInstallment;
   private $_installmentPrice;
+  private $_ammountPaid;
   private $_dueDate;
 
   public function wipeAllData() : void {
@@ -87,6 +89,10 @@ class Transaction {
     return $this->_installmentPrice;
   }
 
+  private function getAmmountPaid() : float {
+    return $this->ammountPaid;
+  }
+
   private function getDueDate() : DateTime {
     return $this->_dueDate;
   }
@@ -137,6 +143,10 @@ class Transaction {
 
   private function setInstallmentPrice($installmentPrice) : void {
     $this->_installmentPrice = Regex::validate($installmentPrice, "/^[+-]?([0-9]*[.])?[0-9]?$/");
+  }
+
+  private function setAmmountPaid($ammountPaid) : void {
+    $this->_ammountPaid = Regex::validate($ammoutPaid, "/^[+-]?([0-9]*[.])?[0-9]?$/");
   }
 
   private function setDueDate($dueDate) : void {
