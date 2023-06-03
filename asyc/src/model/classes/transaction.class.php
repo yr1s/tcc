@@ -1,6 +1,6 @@
 <?php
 
-abstract class Transaction {
+class Transaction {
   private $_cost;
   private $_description;
   private $_transactionType;
