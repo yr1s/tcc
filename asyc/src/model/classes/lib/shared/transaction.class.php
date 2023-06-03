@@ -128,11 +128,11 @@ abstract class Transaction {
   }
 
   private function setIsInstallment($isInstallment) : void {
-
+    $this->_isInstallment = $isInstallment ?? false;
   }
 
   private function setQtdeInstallment($qtdeInstallment) : void {
-
+    $this->_qtdeInstallment = Regex::validate($qtdeInstallment, "/^[0-9]$/");
   }
 
   private function setInstallmentPrice($installmentPrice) : void {
