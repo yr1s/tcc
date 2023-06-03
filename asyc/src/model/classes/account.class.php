@@ -82,7 +82,7 @@ class Account {
     $this->setExpense($expense);
 
     Crud::create(get_class($this), $this->getAllData());
- }
+  }
 
   public function __construct() { Crud::getConnection(); }
 }
