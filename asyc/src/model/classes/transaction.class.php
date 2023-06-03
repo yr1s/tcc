@@ -1,5 +1,7 @@
 <?php
 
+require_once './lib/crud.class.php';
+
 class Transaction {
   private $_cost;
   private $_description;
@@ -51,6 +53,10 @@ class Transaction {
 
   private function getTransactionType() : bool {
     return $this->_transactionType;
+  }
+
+  private function getCashFlow() : bool {
+    return $this->_cashFlow;
   }
 
   private function getDestinationAccount() : string {
@@ -109,6 +115,10 @@ class Transaction {
     $this->_transctionType = Regex::validate($transactionType,  "/^[\p{Ll}\p{Lu}\p{M}]+$/");
   }
 
+  private function setCashFlow($cashFlow) : void {
+    $this->_cashFlow = $cashFlow ?? false;
+  }
+
   private function setDestinationAccount($destinationAccount) : void {
     $this->_destinationAccount = Regex::validate($destinationAccount,  "/^[\p{Ll}\p{Lu}\p{M}\]+$/");
   }
@@ -152,4 +162,23 @@ class Transaction {
   private function setDueDate($dueDate) : void {
     $this->_dueDate = $dueDate->format("m-d-Y");
   }
+
+  public function register($cost, $description, $transactionType, $cashFlow, $destinationAccount, $creditor, $category, $status, $piority, $formOfPayment, $isInstallment, $qtdeInstallment, $installmentPrice, $ammountPaid) : void {
+    $this->setCost($cost);
+    $this->setDescription($description);
+    $this->setTransactionType($transactionType);
+    $this->setCashFlow($cashFlow);
+    $this->setDestinationAccount($destinationAccount);
+    $this->setCreditor($creditor);
+    $this->setCategory($category);
+    $this->setStatus($status);
+    $this->setPriority($priority);
+    $this->setFormOfPayment($formOfPayment);
+    $this->setIsInstallment($isInstallment);
+    $this->setQtdeInstallment($qtdeInstallment);
+    $this->setInstallmentPrice($installmentPrice);
+    $this->setAmmountPaid($ammountPaid);    
+  }
+
+  public function __construct() { Grid::getConnection(); }
 }
