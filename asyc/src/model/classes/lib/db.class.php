@@ -137,7 +137,8 @@ class DB {
 
 	/* @throws \PDOException if the connection fails */
 	public function __construct() {
-    $dsn = "mysql:host={$this->_host};dbname={$this->_db};port={$this->_port};charset={$this->_charset}";
+    $fullPath = "../../../storage/" . $this->_db;
+    $dsn = "mysql:host={$this->_host};dbname={$fullPath};port={$this->_port};charset={$this->_charset}";
     $options = [
       PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
       PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
