@@ -1,6 +1,6 @@
 <?php
 
-require_once 'lib/shared/person.class.php';
+require_once 'lib/shared/Person.php';
 
 class Employee extends Person {
 	private $_civilStatus;

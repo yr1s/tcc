@@ -1,6 +1,6 @@
 <?php 
 
-require_once 'db.class.php';
+require_once 'DB.php';
 
 class Crud {
   /* @var BD `_bd` represents an access interface to the database */ 

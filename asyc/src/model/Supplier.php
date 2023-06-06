@@ -1,49 +1,58 @@
 <?php
 
-require_once 'lib/shared/person.class.php';
+require_once 'lib/shared/Contact.php';
 
-class Customer extends Person {
+class Supplier extends Contact {
+  private $_CNPJ;
+  private $_description;
+
   public function getAllData() : array {
     return [
       "name" => $this->getName(),
       "telephone" => $this->getTelephone(),
       "cellphone" => $this->getCellphone(),
       "email" => $this->getEmail(),
+      "cnpj" => $this->getCnpj(),
       "address" => $this->getAddress(),
       "cep" => $this->getCep(),
       "houseNumber" => $this->getHouseNumber(),
       "city" => $this->getCity(),
       "neighborhood" => $this->getNeighborhood(),
       "reference" => $this->getReference(),
-      "gender" => $this->getGender(),
-      "nationality" => $this->getNationality(),
-      "birthdate" => $this->getBirthdate(),
-      "rg" => $this->getRg(),
-      "cpf" => $this->getCpf(),
+      "description" => $this->getDescription()
     ];
   }
 
-  private function setCpf($CPF) : void {
-		$this->_CPF = Regex::validate($CPF, "/^([0-9]{11})?$/");
-	}
+  private function getCnpj() : string {
+    return $this->_CNPJ;
+  }
 
-  public function register($name, $telephone, $cellphone, $email, $address, $CEP, $houseNumber, $city, $neighborhood, $reference, $gender, $nationality, $birthdate, $RG, $CPF) : void {
+  private function getDescription() : string|null {
+    return $this->_description;
+  }
+
+  private function setCnpj($cnpj) : void {
+    $this->_cnpj = Regex::validate($cnpj, "/^([0-9]{14})+$/");
+  }
+
+  private function setDescription($description) : void {
+    $this->_description = Regex::validate($description, "/^([\p{Ll}\p{Lu}\p{M}.,\s]+)?$/");
+  }
+
+  public function register($name, $telephone, $cellphone, $email, $cnpj, $address, $cep, $houseNumber, $city, $neighborhood, $reference, $description) : void {
     $this->setName($name);
     $this->setTelephone($telephone);
     $this->setCellphone($cellphone);
     $this->setEmail($email);
+    $this->setCnpj($cnpj);
     $this->setAddress($address);
     $this->setCep($cep);
     $this->setHouseNumber($houseNumber);
     $this->setCity($city);
     $this->setNeighborhood($neighborhood);
     $this->setReference($reference);
-    $this->setGender($gender);
-    $this->setNationality($nationality);
-    $this->setBirthdate($birthdate);
-    $this->setRg($RG);
-    $this->setCpf($CPF);
-    
+    $this->setDescription($description);
+
     Crud::create(get_class($this), $this->getAllData());
   }
 

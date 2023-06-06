@@ -1,6 +1,6 @@
 <?php
 
-require_once 'lib/shared/service.class.php';
+require_once 'lib/shared/Service.php';
 
 class Quote extends Service {
   private $_checklist;

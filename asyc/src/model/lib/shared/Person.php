@@ -1,6 +1,6 @@
 <?php
 
-require_once 'contact.class.php';
+require_once 'Contact.php';
 
 abstract class Person extends Contact {
   protected $_gender;

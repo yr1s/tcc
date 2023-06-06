@@ -1,6 +1,6 @@
 <?php
 
-require_once './lib/crud.class.php';
+require_once './lib/Crud.php';
 
 class Transaction {
   private $_cost;
