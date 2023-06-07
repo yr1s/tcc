@@ -1,7 +1,7 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-require_once '../src/model/entities/Account.php';
+require_once (dirname(__FILE__)."/../src/model/entities/Account.php");
 
 final class AccountTest extends TestCase {
   private static $account;
