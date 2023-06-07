@@ -6,7 +6,7 @@ class DB {
   private $_host = '127.0.0.1',
   $_port = '3306',
   $_user = 'root',
-  $_password = '.H0y$wQ/o7F3#+@t',
+  $_password = '',
   $_db = 'super_asyc',
   $_charset = 'utf8mb4',
   $_result = '',
