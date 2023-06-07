@@ -1,6 +1,6 @@
 <?php
 
-require_once 'lib/Crud.php';
+require_once '../lib/Crud.php';
 
 class Account {
   private $_description;

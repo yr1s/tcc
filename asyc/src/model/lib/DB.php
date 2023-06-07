@@ -6,8 +6,8 @@ class DB {
   private $_host = '127.0.0.1',
   $_port = '3306',
   $_user = 'root',
-  $_password = '',
-  $_db = 'asyc',
+  $_password = '.H0y$wQ/o7F3#+@t',
+  $_db = 'super_asyc',
   $_charset = 'utf8mb4',
   $_result = '',
   $_connection;
@@ -137,8 +137,7 @@ class DB {
 
 	/* @throws \PDOException if the connection fails */
 	public function __construct() {
-    $fullPath = "../../../storage/" . $this->_db;
-    $dsn = "mysql:host={$this->_host};dbname={$fullPath};port={$this->_port};charset={$this->_charset}";
+    $dsn = "mysql:host={$this->_host};dbname={$this->_db};port={$this->_port};charset={$this->_charset}";
     $options = [
       PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
       PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
