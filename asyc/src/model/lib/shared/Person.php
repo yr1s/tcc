@@ -1,6 +1,6 @@
 <?php
 
-require_once 'Contact.php';
+require_once (dirname(__FILE__)."/Contact.php");
 
 abstract class Person extends Contact {
   protected $_gender;

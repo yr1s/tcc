@@ -1,6 +1,7 @@
 <?php
 
-require_once '../lib/Crud.php';
+require_once (dirname(__FILE__)."/../lib/Crud.php");
+require_once (dirname(__FILE__)."/../lib/Regex.php");
 
 class Transaction {
   private $_cost;

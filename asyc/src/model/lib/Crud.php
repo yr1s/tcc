@@ -1,6 +1,6 @@
 <?php 
 
-require_once 'DB.php';
+require_once (dirname(__FILE__)."/DB.php");
 
 class Crud {
   /* @var BD `_bd` represents an access interface to the database */ 

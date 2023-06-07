@@ -1,6 +1,8 @@
 <?php
 
-require_once '../lib/shared/Contact.php';
+require_once (dirname(__FILE__)."/../lib/Crud.php");
+require_once (dirname(__FILE__)."/../lib/Regex.php");
+require_once (dirname(__FILE__)."/../lib/shared/Contact.php");
 
 class Supplier extends Contact {
   private $_CNPJ;

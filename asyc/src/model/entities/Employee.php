@@ -1,6 +1,8 @@
 <?php
 
-require_once '../lib/shared/Person.php';
+require_once (dirname(__FILE__)."/../lib/Crud.php");
+require_once (dirname(__FILE__)."/../lib/Regex.php");
+require_once (dirname(__FILE__)."/../lib/shared/Person.php");
 
 class Employee extends Person {
 	private $_civilStatus;

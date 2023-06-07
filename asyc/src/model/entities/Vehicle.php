@@ -1,5 +1,8 @@
 <?php
 
+require_once (dirname(__FILE__)."/../lib/Crud.php");
+require_once (dirname(__FILE__)."/../lib/Regex.php");
+
 class Vehicle {
   private $_model;
   private $_brand;
