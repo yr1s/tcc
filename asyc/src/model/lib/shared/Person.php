@@ -11,23 +11,23 @@ abstract class Person extends Contact {
 	
   abstract protected function setCpf();
 
-	protected function getGender() {
+	protected function getGender() : string|null {
 		return $this->_gender;
 	}
 
-	protected function getNationality() {
+	protected function getNationality() : string|null {
 		return $this->_nacionality;
 	}
 
-	protected function getBirthdate() {
+	protected function getBirthdate() : DateTime|null {
 		return $this->_birthdate;
 	}
 
-	protected function getRg() {
+	protected function getRg() : string|null {
 		return $this->_RG;
 	}
 
-	protected function getCpf() {
+	protected function getCpf() : string|null {
 		return $this->_CPF;
 	}
 

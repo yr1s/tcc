@@ -11,7 +11,7 @@ class Regex {
   */
   public static function validate($input, $regex) : string {
     if (!preg_match($regex, $input)) {
-      throw new InvalidArgumentException("`$input` invalido - nao atende aos requisitos necessarios" . PHP_EOL);
+      throw new InvalidArgumentException("****`$input` invalido - nao atende aos requisitos necessarios****" . PHP_EOL);
     }
 
     preg_match($regex, $input, $output);

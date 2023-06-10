@@ -16,35 +16,35 @@ abstract class Service {
     }
   }
 
-  protected function getCost() : float {
+  protected function getCost() : float|null {
     return $this->_cost;
   }
 
-  protected function getComplaint() : string {
+  protected function getComplaint() : string|null {
     return $this->_complaint;
   }
 
-  protected function getFormOfPayment() : string {
+  protected function getFormOfPayment() : string|null {
     return $this->_formOfPayment;
   }
 
-  protected function getIsInstallment() : bool {
+  protected function getIsInstallment() : bool|null {
     return $this->_isInstallment;
   }
 
-  protected function getQtdeInstallment() : int {
+  protected function getQtdeInstallment() : int|null {
     return $this->_qtdeInstallment;
   }
 
-  protected function getSituation() : int {
+  protected function getSituation() : int|null {
     return $this->_situation;
   }
 
-  protected function getStatus() : int {
+  protected function getStatus() : int|null {
     return $this->_status;
   }
 
-  protected function getPriority() : int {
+  protected function getPriority() : int|null {
     return $this->_property;
   }
 

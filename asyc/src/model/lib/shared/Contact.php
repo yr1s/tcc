@@ -18,43 +18,43 @@ abstract class Contact {
     }
   }
 
-	protected function getName() {
+	protected function getName() : string|null {
 		return $this->_name;
 	}
 
-	protected function getTelephone() {
+	protected function getTelephone() : string|null {
 		return $this->_telephone;
 	}
 
-	protected function getCellphone() {
+	protected function getCellphone() : string|null {
 		return $this->_cellphone;
 	}
 
-	protected function getEmail() {
+	protected function getEmail() : string|null {
 		return $this->_email;
 	}
 
-	protected function getAddress() {
+	protected function getAddress() : string|null {
 		return $this->_address;
 	}
 
-	protected function getCep() {
+	protected function getCep() : string|null {
 		return $this->_CEP;
 	}
 
-	protected function getHouseNumber() {
+	protected function getHouseNumber() : string|null {
 		return $this->_houseNumber;
 	}
 
-	protected function getCity() {
+	protected function getCity() : string|null {
 		return $this->_city;
 	}
 
-	protected function getNeighborhood() {
+	protected function getNeighborhood() : string|null {
 		return $this->_neighborhood;
 	}
 
-	protected function getReference() {
+	protected function getReference() : string|null {
 		return $this->_reference;
 	}
 
