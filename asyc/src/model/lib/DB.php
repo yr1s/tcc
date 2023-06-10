@@ -6,8 +6,8 @@ class DB {
   private $_host = '127.0.0.1',
   $_port = '3306',
   $_user = 'root',
-  $_password = '',
-  $_db = 'super_asyc',
+  $_password = '.H0y$wQ/o7F3#+@t',
+  $_db = 'teste_asyc',
   $_charset = 'utf8mb4',
   $_result = '',
   $_connection;
@@ -15,15 +15,16 @@ class DB {
 	public function insert($table, $data) : void { 
     if (empty($data)) { return; }
 
-    $fields = implode('` , `' , array_keys($data));
-    $values = array_keys($values);
+    $fields = implode(', ' , array_keys($data));
+    $values = array_values($data);
     $toInsert = '';
 
     $tmpCount = $values;
     foreach($values as $value) {
       $toInsert .= '?';          
-      unset($tempCount[0]);
-      if (count($tempCount)) {
+      unset($tmpCount[0]);
+      $tmpCount = array_values($tmpCount); // reindexing array
+      if (count($tmpCount)) {
           $toInsert .= ', ';
       }
     }
@@ -108,7 +109,7 @@ class DB {
   /* Prepares and execute a query */
   private function query($sql, $parameters = array()) : void {
     $statement = $this->_connection->prepare($sql);
-    if (count($paremeters)) {
+    if (count($parameters)) {
       $pos = 1;
       foreach($parameters as $parameter) {
         if (is_int($parameter)) {
