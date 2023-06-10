@@ -6,11 +6,16 @@ class DB {
   private $_host = '127.0.0.1',
   $_port = '3306',
   $_user = 'root',
-  $_password = '.H0y$wQ/o7F3#+@t',
+  $_password = '',
   $_db = 'teste_asyc',
   $_charset = 'utf8mb4',
   $_result = '',
+  $_status,
   $_connection;
+
+  public function getStatus() : boolean {
+    return $this->_status;
+  }
 
 	public function insert($table, $data) : void { 
     if (empty($data)) { return; }
@@ -121,9 +126,9 @@ class DB {
       }
     }
 
-    $this->status = $statement->execute();
-    if (!$this->status) {
-      throw new Exception("Consulta falhou");
+    $this->_status = $statement->execute();
+    if (!$this->_status) {
+      throw new Exception("****Consulta falhou****");
     }
 
     $this->_result = $statement->fetch();
@@ -148,7 +153,7 @@ class DB {
 		try {
       $this->_connection = new PDO($dsn, $this->_user, $this->_password, $options);
 		} catch (\PDOException $exception) {
-      throw new \PDOException("Nao foi possivel se conectar com banco ~ " . $exception->getMessage(), (int) $exception->getCode());
+      throw new \PDOException("****Nao foi possivel se conectar com banco**** " . $exception->getMessage(), (int) $exception->getCode());
 		}
 	}
 }
