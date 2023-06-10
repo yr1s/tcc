@@ -2,28 +2,34 @@
 
 use PHPUnit\Framework\TestCase;
 require_once (dirname(__FILE__)."/../src/model/entities/Account.php");
+require_once (dirname(__FILE__)."/Instantiator.php");
 
-final class AccountTest extends TestCase {
-  private static $account;
+final class AccountTest extends TestCase implements Instantiator {
+  private static $_account;
+
+  public function instantiate() {
+    if (AccountTest::$_account === null) { AccountTest::$_account = new Account(); }
+  }
 
   public function register() {
     AccountTest::$_account->register(
-      "conta bancaria",
+      "caixa banco",
       "corrente",
       1,
       1000.00,
       1500.00,
       500.00
     );
+  
   }
 
   public function testGetAllData() : void {
-    AccountTest::$_account = new Account();
+    $this->instantiate();
     $this->register();
 
     $this->assertSame(
       [
-        "description" => "conta bancaria",
+        "description" => "caixa banco",
         "accountType" => "corrente",
         "status" => 1,
         "overallBalance" => 1000.00,
@@ -36,32 +42,40 @@ final class AccountTest extends TestCase {
   }
 
   public function testWipeAllData() : void {
-    AccountTest::$_account = new Account();
+    $this->instantiate();
     $this->register();
-    AccountTest::$_account->wipeAllData();
 
-    $this->assertEmpty(AccountTest::$_account->getDescription());
-    $this->assertEmpty(AccountTest::$_account->getAccountType());
-    $this->assertEmpty(AccountTest::$_account->getStatus());
-    $this->assertEmpty(AccountTest::$_account->getOverallBalance());
-    $this->assertEmpty(AccountTest::$_account->getIncome());
-    $this->assertEmpty(AccountTest::$_account->getExpense());
+    AccountTest::$_account->wipeAllData();
+    $this->assertSame(
+      [
+        "description" => null,
+        "accountType" => null,
+        "status" => null,
+        "overallBalance" => null,
+        "income" => null,
+        "expense" => null
+      ],
+
+      AccountTest::$_account->getAllData()
+    );
   }
 
   public function testRegisterWithGetters() : void {
-    AccountTest::$_account = new Account();
+    $this->instantiate();
     $this->register();
 
-    $this->assertSame("conta bancaria", AccountTest::$_account->getDescription());
-    $this->assertSame("corrente", AccountTest::$_account->getAccountType());
-    $this->assertSame(1, AccountTest::$_account->getStatus());
-    $this->assertSame(1000.00, AccountTest::$_account->getOverallBalance());
-    $this->assertSame(1500.00, AccountTest::$_account->getIncome());
-    $this->assertSame(500.00, AccountTest::$_account->getExpense());
+    $data = AccountTest::$_account->getAllData();
+
+    $this->assertSame("caixa banco", $data["description"]);
+    $this->assertSame("corrente", $data["accountType"]);
+    $this->assertSame(1, $data["status"]);
+    $this->assertSame(1000.00, $data["overallBalance"]);
+    $this->assertSame(1500.00, $data["income"]);
+    $this->assertSame(500.00, $data["expense"]);
   }
 
-  public function testRegisterWithInvalidValues() : void {
-    AccountTest::$_account = new Account();
+  public function testRegisterInvalidValuesWithGetters() : void {
+    $this->instantiate();
     $this->expectException(InvalidArgumentException::class);
 
     AccountTest::$_account->register(
@@ -72,10 +86,5 @@ final class AccountTest extends TestCase {
       "$#!",
       "%^#^%@JKFLDAF"
     );
-  }
-
-  public function testClass() : void {
-    AccountTest::$_account = new Account();
-    $this->assertTrue("Account" == get_class(Account::$_account));
   }
 }
