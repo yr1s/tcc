@@ -25,7 +25,7 @@ class Supplier extends Contact {
     ];
   }
 
-  private function getCnpj() : string {
+  private function getCnpj() : string|null {
     return $this->_CNPJ;
   }
 

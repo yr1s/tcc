@@ -24,19 +24,19 @@ class Stock {
     }
   }
 
-  private function getDescription() : string {
+  private function getDescription() : string|null {
     return $this->_description;
   }
 
-  private function getCategory() : string {
+  private function getCategory() : string|null {
     return $this->_category;
   }
 
-  private function getQtdeProductsStored() : int {
+  private function getQtdeProductsStored() : int|null {
     return $this->_qtdeProductsStored;
   } 
 
-  private function getLocation() : string {
+  private function getLocation() : string|null {
     return $this->_location;
   }
 

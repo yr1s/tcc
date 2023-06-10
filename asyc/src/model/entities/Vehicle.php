@@ -28,27 +28,27 @@ class Vehicle {
     }
   }
 
-  private function getModel() {
+  private function getModel() : string|null {
     return $this->_model;
   }
 
-  private function getBrand() {
+  private function getBrand() : string|null {
     return $this->_brand;
   }
 
-  private function getColor() {
+  private function getColor() : string|null {
     return $this->_color;
   }
 
-  private function getLicensePlate() {
+  private function getLicensePlate() : string|null {
     return $this->_licensePlate;
   }
 
-  private function getMileage() {
+  private function getMileage() : float|null {
     return $this->_mileage;
   }
 
-  private function getDescription() {
+  private function getDescription() : string|null {
     return $this->_description;
   }
 

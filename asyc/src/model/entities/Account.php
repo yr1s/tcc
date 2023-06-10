@@ -28,27 +28,27 @@ class Account {
     }
   }
 
-  private function getDescription() : string {
+  private function getDescription() : string|null {
     return $this->_description;
   }
 
-  private function getAccountType() : string {
+  private function getAccountType() : string|null {
     return $this->_accountType;
   }
 
-  private function getStatus() : int {
+  private function getStatus() : int|null {
     return $this->_status;
   }
 
-  private function getOverallBalance() : float {
+  private function getOverallBalance() : float|null {
     return $this->_overallBalance;
   }
 
-  private function getIncome() : float {
+  private function getIncome() : float|null {
     return $this->_income;
   }
 
-  private function getExpense() : float {
+  private function getExpense() : float|null {
     return $this->_expense;
   }
 

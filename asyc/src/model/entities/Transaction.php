@@ -26,7 +26,7 @@ class Transaction {
     }
   }
 
-  public function getAllData() : aray {
+  public function getAllData() : array {
     return [
       "cost" => $this->getCost(),
       "description" => $this->getDescription(),
@@ -44,47 +44,47 @@ class Transaction {
     ];
   }
 
-  private function getCost() : float {
+  private function getCost() : float|null {
     return $this->_cost;
   }
 
-  private function getDescription() : string {
+  private function getDescription() : string|null {
     return $this->_description;
   }
 
-  private function getTransactionType() : bool {
+  private function getTransactionType() : bool|null {
     return $this->_transactionType;
   }
 
-  private function getCashFlow() : bool {
+  private function getCashFlow() : bool|null {
     return $this->_cashFlow;
   }
 
-  private function getDestinationAccount() : string {
+  private function getDestinationAccount() : string|null {
     return $this->_destinationAccount;
   }
 
-  private function getCreditor() : string {
+  private function getCreditor() : string|null {
     return $this->_creditor;
   }
 
-  private function getCategory() : string {
+  private function getCategory() : string|null {
     return $this->_category;
   }
 
-  private function getStatus() : int {
+  private function getStatus() : int|null {
     return $this->_status;
   }
 
-  private function getPriority() : int {
+  private function getPriority() : int|null {
     return $this->_priority;
   }
 
-  private function getFormOfPayment() : string {
+  private function getFormOfPayment() : string|null {
     return $this->_formOfPayment;
   }
 
-  private function getIsInstallment() : bool {
+  private function getIsInstallment() : bool|null {
     return $this->_isInstallment;
   }
 
@@ -96,11 +96,11 @@ class Transaction {
     return $this->_installmentPrice;
   }
 
-  private function getAmmountPaid() : float {
+  private function getAmmountPaid() : float|null {
     return $this->ammountPaid;
   }
 
-  private function getDueDate() : DateTime {
+  private function getDueDate() : DateTime|null {
     return $this->_dueDate;
   }
 

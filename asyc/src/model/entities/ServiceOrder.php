@@ -32,11 +32,11 @@ class ServiceOrder extends Service {
     );
   }
 
-  private function getResponsibleTechnician() : string {
+  private function getResponsibleTechnician() : string|null {
     return $this->_responsibleTechnician;
   }
 
-  private function getTechnicalReport() : string {
+  private function getTechnicalReport() : string|null {
     return $this->_technicalReport;
   }
 
@@ -44,7 +44,7 @@ class ServiceOrder extends Service {
     return $this->_pickUpDate;
   }
 
-  private function getClosingDate() : DateTime {
+  private function getClosingDate() : DateTime|null {
     return $this->_closingDate;
   }
 
@@ -108,19 +108,19 @@ class Labour {
     ];
   }
 
-  private function getCost() : float {
+  private function getCost() : float|null {
     return $this->_cost;
   }
 
-  private function getLabourType() : bool {
+  private function getLabourType() : bool|null {
     return $this->_labourType;
   }
 
-  private function getDescription() : string {
+  private function getDescription() : string|null {
     return $this->_description;
   }
 
-  private function getResponsibleTechnician() : string {
+  private function getResponsibleTechnician() : string|null {
     return $this->_responsibleTechnician;
   }
 
@@ -173,15 +173,15 @@ class UsedProduct {
     ];
   }
 
-  private function getCost() : float {
+  private function getCost() : float|null {
     return $this->_cost;
   }
 
-  private function getUsedProductType() : bool {
+  private function getUsedProductType() : bool|null {
     return $this->_usedProductType;
   }
 
-  private function getDescription() : string {
+  private function getDescription() : string|null {
     return $this->_description;
   }
 

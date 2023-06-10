@@ -36,19 +36,19 @@ class Product {
     return $this->_salePrice;
   }
 
-  private function getDescription() : string {
+  private function getDescription() : string|null {
     return $this->_description;
   }
 
-  private function getModel() : string {
+  private function getModel() : string|null {
     return $this->_model;
   }
 
-  private function getBrand() : string {
+  private function getBrand() : string|null {
     return $this->_brand;
   }
 
-  private function getProductCode() : string {
+  private function getProductCode() : string|null {
     return $this->_productCode;
   }
 

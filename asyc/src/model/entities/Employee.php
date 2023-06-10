@@ -32,15 +32,15 @@ class Employee extends Person {
 		];
 	}
 
-	private function getCivilStatus() {
+	private function getCivilStatus() : string|null {
 		return $this->_civilStatus;
 	}
 
-	private function getPosition() {
+	private function getPosition() : string|null {
 		return $this->_position;
 	}
 
-	private function getCommission() {
+	private function getCommission() : float|null {
 		return $this->_commission;
 	}
 

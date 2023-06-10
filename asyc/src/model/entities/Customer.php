@@ -25,6 +25,7 @@ class Customer extends Person {
     ];
   }
 
+  // abstract method
   private function setCpf($CPF) : void {
 		$this->_CPF = Regex::validate($CPF, "/^([0-9]{11})?$/");
 	}
