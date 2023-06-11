@@ -10,7 +10,7 @@ class Regex {
   * @throws new Exception if `input` is not valid
   */
   public static function validate($input, $regex) : string {
-    if (!preg_match($regex, $input)) {
+    if (!preg_match($regex, $input) || gettype($input) === "boolean") {
       throw new InvalidArgumentException("****`$input` invalido - nao atende aos requisitos necessarios****" . PHP_EOL);
     }
 
@@ -18,3 +18,5 @@ class Regex {
     return $output[0];
   }
 }
+
+
