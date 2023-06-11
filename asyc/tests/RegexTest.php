@@ -8,116 +8,140 @@ final class RegexTest extends TestCase {
   private static $_regexep = [
     "float" => "/^[+-]?([0-9]*[.])?[0-9]+$/",
     "int" => "/^[+-]?[0-9]+$/",
-    "stringName" => "/^[\p{Ll}\p{Lu}\p{M}\s]+$/",
-    "stringDescription" => "/^[\p{Ll}\p{Lu}\p{M}\s0-9]+$/"
+    "stringName" => "/^[\p{Lu}\p{Ll}\p{M}\s]+$/u",
+    "stringDescription" => "/^[\p{Lu}\p{Ll}\p{M}+-,!\s\.'0-9]+$/u"
   ];
 
   public function instantiate() {
     if (RegexTest::$_regex === null) { RegexTest::$_regex = new Regex(); }
   }
 
-  public function invalidate($value, $type) {
+  public function checkException($value, $type) {
     /**** each exception must be tested separately ****/
     $this->expectException(InvalidArgumentException::class);
-    RegexTest::$_regex->validate($value, RegexTest::$_regexep[$type]);
+    RegexTest::$_regex->evaluate($value, RegexTest::$_regexep[$type]);
   }
 
-  public function testValidateFloatNumber() {
+  public function testevaluateFloatNumber() {
     $this->instantiate();
 
-    $this->assertSame(59.99, (double) RegexTest::$_regex->validate(59.99, RegexTest::$_regexep["float"]));
-    $this->assertSame(59.99, (double) RegexTest::$_regex->validate(+59.99, RegexTest::$_regexep["float"]));
-    $this->assertSame(-59.99, (double) RegexTest::$_regex->validate(-59.99, RegexTest::$_regexep["float"]));
-    $this->assertSame(59.00, (double) RegexTest::$_regex->validate(59.00, RegexTest::$_regexep["float"]));
-    $this->assertSame(59.00, (double) RegexTest::$_regex->validate(+59.00, RegexTest::$_regexep["float"]));
-    $this->assertSame(-59.00, (double) RegexTest::$_regex->validate(-59.00, RegexTest::$_regexep["float"]));
-    $this->assertSame(59.0, (double) RegexTest::$_regex->validate(59, RegexTest::$_regexep["float"]));
-    $this->assertSame(59.0, (double) RegexTest::$_regex->validate(+59, RegexTest::$_regexep["float"]));
-    $this->assertSame(-59.0, (double) RegexTest::$_regex->validate(-59, RegexTest::$_regexep["float"]));
-    $this->assertSame(.99, (double) RegexTest::$_regex->validate(.99, RegexTest::$_regexep["float"]));
-    $this->assertSame(.99, (double) RegexTest::$_regex->validate(+.99, RegexTest::$_regexep["float"]));
-    $this->assertSame(-.99, (double) RegexTest::$_regex->validate(-.99, RegexTest::$_regexep["float"]));
-    $this->assertSame(59.99, (double) RegexTest::$_regex->validate("59.99", RegexTest::$_regexep["float"]));
-    $this->assertSame(59.99, (double) RegexTest::$_regex->validate("+59.99", RegexTest::$_regexep["float"]));
-    $this->assertSame(-59.99, (double) RegexTest::$_regex->validate("-59.99", RegexTest::$_regexep["float"]));
+    $this->assertSame(59.99, (double) RegexTest::$_regex->evaluate(59.99, RegexTest::$_regexep["float"]));
+    $this->assertSame(59.99, (double) RegexTest::$_regex->evaluate(+59.99, RegexTest::$_regexep["float"]));
+    $this->assertSame(-59.99, (double) RegexTest::$_regex->evaluate(-59.99, RegexTest::$_regexep["float"]));
+    $this->assertSame(59.00, (double) RegexTest::$_regex->evaluate(59.00, RegexTest::$_regexep["float"]));
+    $this->assertSame(59.00, (double) RegexTest::$_regex->evaluate(+59.00, RegexTest::$_regexep["float"]));
+    $this->assertSame(-59.00, (double) RegexTest::$_regex->evaluate(-59.00, RegexTest::$_regexep["float"]));
+    $this->assertSame(59.0, (double) RegexTest::$_regex->evaluate(59, RegexTest::$_regexep["float"]));
+    $this->assertSame(59.0, (double) RegexTest::$_regex->evaluate(+59, RegexTest::$_regexep["float"]));
+    $this->assertSame(-59.0, (double) RegexTest::$_regex->evaluate(-59, RegexTest::$_regexep["float"]));
+    $this->assertSame(.99, (double) RegexTest::$_regex->evaluate(.99, RegexTest::$_regexep["float"]));
+    $this->assertSame(.99, (double) RegexTest::$_regex->evaluate(+.99, RegexTest::$_regexep["float"]));
+    $this->assertSame(-.99, (double) RegexTest::$_regex->evaluate(-.99, RegexTest::$_regexep["float"]));
+    $this->assertSame(59.99, (double) RegexTest::$_regex->evaluate("59.99", RegexTest::$_regexep["float"]));
+    $this->assertSame(59.99, (double) RegexTest::$_regex->evaluate("+59.99", RegexTest::$_regexep["float"]));
+    $this->assertSame(-59.99, (double) RegexTest::$_regex->evaluate("-59.99", RegexTest::$_regexep["float"]));
   }
 
-  public function testValidateIntegerNumber() {
+  public function testEvaluateIntegerNumber() {
     $this->instantiate();
 
-    $this->assertSame(7, (int) RegexTest::$_regex->validate(7, RegexTest::$_regexep["int"]));
-    $this->assertSame(7, (int) RegexTest::$_regex->validate(+7, RegexTest::$_regexep["int"]));
-    $this->assertSame(-7, (int) RegexTest::$_regex->validate(-7, RegexTest::$_regexep["int"]));
-    $this->assertSame(7, (int) RegexTest::$_regex->validate("7", RegexTest::$_regexep["int"]));
-    $this->assertSame(7, (int) RegexTest::$_regex->validate("+7", RegexTest::$_regexep["int"]));
-    $this->assertSame(-7, (int) RegexTest::$_regex->validate("-7", RegexTest::$_regexep["int"]));
+    $this->assertSame(7, (int) RegexTest::$_regex->evaluate(7, RegexTest::$_regexep["int"]));
+    $this->assertSame(7, (int) RegexTest::$_regex->evaluate(+7, RegexTest::$_regexep["int"]));
+    $this->assertSame(-7, (int) RegexTest::$_regex->evaluate(-7, RegexTest::$_regexep["int"]));
+    $this->assertSame(7, (int) RegexTest::$_regex->evaluate("7", RegexTest::$_regexep["int"]));
+    $this->assertSame(7, (int) RegexTest::$_regex->evaluate("+7", RegexTest::$_regexep["int"]));
+    $this->assertSame(-7, (int) RegexTest::$_regex->evaluate("-7", RegexTest::$_regexep["int"]));
   }
 
-  public function testValidateNameString() {
+  public function testEvaluateNameString() {
     $this->instantiate();
+
+    $this->assertSame("Leonardo Abadie Fernandes", RegexTest::$_regex->evaluate("Leonardo Abadie Fernandes", RegexTest::$_regexep["stringName"]));
+    $this->assertSame("Ana Clarissa Abadie Fernandes", RegexTest::$_regex->evaluate("Ana Clarissa Abadie Fernandes", RegexTest::$_regexep["stringName"]));
+    $this->assertSame("José Mario Augusto Nicácio", RegexTest::$_regex->evaluate("José Mario Augusto Nicácio", RegexTest::$_regexep["stringName"]));
+    $this->assertSame("Bia", RegexTest::$_regex->evaluate("Bia", RegexTest::$_regexep["stringName"]));
   }
 
-  public function testValidateDescriptionString() {
+  public function testEvaluateDescriptionString() {
     $this->instantiate(); 
+
+    $this->assertSame("Turn left, my house is just around the corner", RegexTest::$_regex->evaluate("Turn left, my house is just around the corner", RegexTest::$_regexep["stringDescription"]));
+    $this->assertSame("In the green school, go to the 2nd floor and 4h floor", RegexTest::$_regex->evaluate("In the green school, go to the 2nd floor and 4h floor", RegexTest::$_regexep["stringDescription"]));
+    $this->assertSame("His name is José Mario Augusto Nicácio. He's not that bad! Just the age, he's 70yo", RegexTest::$_regex->evaluate("His name is José Mario Augusto Nicácio. He's not that bad! Just the age, he's 70yo", RegexTest::$_regexep["stringDescription"]));
   }
 
-  public function testValidateExceptionFloatNumberWithAlphabeticString() {
+  public function testEvaluateExceptionFloatNumberWithAlphabeticString() {
     $this->instantiate();
-    $this->invalidate("foobar", "float");
+    $this->checkException("foobar", "float");
   }
 
-  public function testValidateExceptionFloatNumberWithMetacharacterString() {
+  public function testEvaluateExceptionFloatNumberWithMetacharacterString() {
     $this->instantiate();
-    $this->invalidate("!#$@#$^&#@!#@%", "float");
+    $this->checkException("!#$@#$^&#@!#@%", "float");
   }
 
-  public function testValidateExceptionFloatNumberWithTrueBoolean() {
+  public function testEvaluateExceptionFloatNumberWithEmptyString() {
     $this->instantiate();
-    $this->invalidate(true, "float");
+    $this->checkException("", "float");
   }
 
-  public function testValidateExceptionFloatNumberWithFalseBoolean() {
+  public function testEvaluateExceptionFloatNumberWithNull() {
     $this->instantiate();
-    $this->invalidate(false, "float");
+    $this->checkException(null, "float");
   }
 
-  public function testValidateExceptionFloatNumberWithEmptyString() {
+  public function testEvaluateExceptionIntegerNumberWithFloat() {
     $this->instantiate();
-    $this->invalidate("", "float");
+    $this->checkException(40.99, "int");
   }
 
-  public function testValidateExceptionFloatNumberWithNull() {
+  public function testEvaluateExceptionIntegerNumberWithAlphabeticString() {
     $this->instantiate();
-    $this->invalidate(null, "float");
+    $this->checkException("messed up", "int");
   }
 
-  public function testValidateExceptionIntegerNumberWithFloat() {
+  public function testEvaluateExceptionIntegerNumberWithMetacharacterString() {
     $this->instantiate();
-    $this->invalidate(40.99, "int");
+    $this->checkException("{}<>/.,}|[]\]|*&)($#!@^%`~", "int");
   }
 
-  public function testValidateExceptionIntegerNumberWithAlphabeticString() {
+  public function testEvaluateExceptionIntegerNumberWithNull() {
     $this->instantiate();
-    $this->invalidate("messed up", "int");
+    $this->checkException(null, "int");
   }
 
-  public function testValidateExceptionIntegerNumberWithMetacharacterString() {
+  public function testEvaluateExceptionNameStringWithDotString() {
     $this->instantiate();
-    $this->invalidate("{}<>/.,}|[]\]|*&)($#!@^%`~", "int");
+    $this->checkException("my.name.is.leonardo.", "stringName");
   }
 
-  public function testValidateExceptionIntegerNumberWithTrueBoolean() {
+  public function testEvaluateExceptionNameStringWithMetacharacterString() {
     $this->instantiate();
-    $this->invalidate(true, "int");
+    $this->checkException("{}<>/,}|[]\]|*&)($#!@^%`~", "stringName");
   }
 
-  public function testValidateExceptionIntegerNumberWithFalseBoolean() {
+  public function testEvaluateExceptionNameStringWithNumber() {
     $this->instantiate();
-    $this->invalidate(false, "int");
+    $this->checkException(12, "stringName");
   }
 
-  public function testValidateExceptionIntegerNumberWithNull() {
+  public function testEvaluateExceptionNameStringWithNumberString() {
     $this->instantiate();
-    $this->invalidate(null, "int");
+    $this->checkException("11.23", "stringName");
+  }
+
+  public function testEvaluateExceptionDescriptionStringWithMetacharacterString() {
+    $this->instantiate();
+    $this->checkException("{}<>/}|[]\]|*&)($#@^%`~", "stringDescription");
+  }
+
+  public function testEvaluateExceptionWithTrueBoolean() {
+    $this->instantiate();
+    $this->checkException(true, "stringDescription");
+  }
+
+  public function testEvaluateExceptionWithFalseBoolean() {
+    $this->instantiate();
+    $this->checkException(false, "stringDescription");
   }
 }
