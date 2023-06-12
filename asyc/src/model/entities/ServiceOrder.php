@@ -49,11 +49,11 @@ class ServiceOrder extends Service {
   }
 
   private function setResponsibleTechnician($responsibleTechnician) {
-    $this->_responsibleTechnician = Regex::validate($responsibleTechnician, "/^[\p{Ll}\p{Lu}\p{M}\s]+$/");
+    $this->_responsibleTechnician = Regex::evaluate($responsibleTechnician, "/^[\p{Ll}\p{Lu}\p{M}\s]+$/");
   } 
 
   private function setTechnicalReport($technicalReport) : void {
-    $this->_technicalReport = Regex::validate($technicalReport, "/^[\p{Ll}\p{Lu}\p{M}\s\.,]+$/");
+    $this->_technicalReport = Regex::evaluate($technicalReport, "/^[\p{Ll}\p{Lu}\p{M}\s\.,]+$/");
   }
 
   private function setPickUpDate($pickUpDate) : void {
@@ -125,7 +125,7 @@ class Labour {
   }
 
   private function setCost($cost) : void {
-    $this->_cost = Regex::validate($cost, "/^[+-]?([0-9]*[.])?[0-9]+$/");
+    $this->_cost = Regex::evaluate($cost, "/^[+-]?([0-9]*[.])?[0-9]+$/");
   }
 
   private function setLabourType($labourType) : void {
@@ -133,11 +133,11 @@ class Labour {
   }
 
   private function setDescription($description) : void {
-    $this->_description = Regex::validate($description, "/^[\p{Ll}\p{Lu}\p{M}\s\.]+$/");
+    $this->_description = Regex::evaluate($description, "/^[\p{Ll}\p{Lu}\p{M}\s\.]+$/");
   }
 
   private function setResponsibleTechnician($responsibleTechnician) {
-    $this->_responsibleTechnician = Regex::validate($responsibleTechnician, "/^[\p{Ll}\p{Lu}\p{M}\s]+$/");
+    $this->_responsibleTechnician = Regex::evaluate($responsibleTechnician, "/^[\p{Ll}\p{Lu}\p{M}\s]+$/");
   } 
 
   public function register($cost, $labourType, $description, $responsibleTechnician) : void {
@@ -194,7 +194,7 @@ class UsedProduct {
   }
 
   private function setCost($cost) : void {
-    $this->_cost = Regex::validate($cost, "/^[+-]?([0-9]*[.])?[0-9]+$/");
+    $this->_cost = Regex::evaluate($cost, "/^[+-]?([0-9]*[.])?[0-9]+$/");
   }
 
   private function setUsedProductType($usedProductType) : void {
@@ -202,15 +202,15 @@ class UsedProduct {
   }
 
   private function setDescription($description) : void {
-    $this->_description = Regex::validate($description, "/^[\p{Ll}\p{Lu}\p{M}\s\.]+$/");
+    $this->_description = Regex::evaluate($description, "/^[\p{Ll}\p{Lu}\p{M}\s\.]+$/");
   }
 
   private function setProductCode($productCode) : void {
-    $this->_productCode = Regex::validate($productCode, "/^[a-z0-9]?$/");
+    $this->_productCode = Regex::evaluate($productCode, "/^[a-z0-9]?$/");
   }
 
   private function setBarcode($barcode) : void {
-    $this->_barcode = Regex::validate($barcode, "/^[0-9]?$/");
+    $this->_barcode = Regex::evaluate($barcode, "/^[0-9]?$/");
   }
 
   public function register($cost, $usedProductType, $description, $productCode, $barcode) : void {

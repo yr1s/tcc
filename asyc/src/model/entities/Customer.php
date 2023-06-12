@@ -27,7 +27,7 @@ class Customer extends Person {
 
   // abstract method
   private function setCpf($CPF) : void {
-		$this->_CPF = Regex::validate($CPF, "/^([0-9]{11})?$/");
+		$this->_CPF = Regex::evaluate($CPF, "/^([0-9]{11})?$/");
 	}
 
   public function register($name, $telephone, $cellphone, $email, $address, $CEP, $houseNumber, $city, $neighborhood, $reference, $gender, $nationality, $birthdate, $RG, $CPF) : void {

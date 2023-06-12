@@ -105,15 +105,15 @@ class Transaction {
   }
 
   private function setCost($cost) : void {
-    $this->_cost = Regex::validate($cost, "/^[+-]?([0-9]*[.])?[0-9]+$/"); 
+    $this->_cost = Regex::evaluate($cost, "/^[+-]?([0-9]*[.])?[0-9]+$/"); 
   }
 
   private function setDescription($description) : void {
-    $this->_description = Regex::validate($description, "/^[\p{Ll}\p{Lu}\p{M}\s\.,]+$/");
+    $this->_description = Regex::evaluate($description, "/^[\p{Ll}\p{Lu}\p{M}\s\.,]+$/");
   }
 
   private function setTransactionType($transctionType) : void {
-    $this->_transctionType = Regex::validate($transactionType,  "/^[\p{Ll}\p{Lu}\p{M}]+$/");
+    $this->_transctionType = Regex::evaluate($transactionType,  "/^[\p{Ll}\p{Lu}\p{M}]+$/");
   }
 
   private function setCashFlow($cashFlow) : void {
@@ -121,27 +121,27 @@ class Transaction {
   }
 
   private function setDestinationAccount($destinationAccount) : void {
-    $this->_destinationAccount = Regex::validate($destinationAccount,  "/^[\p{Ll}\p{Lu}\p{M}\]+$/");
+    $this->_destinationAccount = Regex::evaluate($destinationAccount,  "/^[\p{Ll}\p{Lu}\p{M}\]+$/");
   }
 
   private function setCreditor($creditor) : void {
-    $this->_creditor = Regex::validate($creditor,  "/^[\p{Ll}\p{Lu}\p{M}\s]?$/");
+    $this->_creditor = Regex::evaluate($creditor,  "/^[\p{Ll}\p{Lu}\p{M}\s]?$/");
   }
 
   private function setCategory($category) : void {
-    $this->_category = Regex::validate($category,  "/^[\p{Ll}\p{Lu}\p{M}\s]+$/");
+    $this->_category = Regex::evaluate($category,  "/^[\p{Ll}\p{Lu}\p{M}\s]+$/");
   }
 
   private function setStatus($status) : void {
-    $this->_status = Regex::validate($status,  "/^[0-9]+$/");
+    $this->_status = Regex::evaluate($status,  "/^[0-9]+$/");
   }
 
   private function setPriority($priority) : void {
-    $this->_priority = Regex::validate($priority, "/^[0-9]+$/");
+    $this->_priority = Regex::evaluate($priority, "/^[0-9]+$/");
   }
 
   private function setFormOfPayment($formOfPayment) : void {
-    $this->_formOfPayment = Regex::validate($formOfPayment, "/^[a-zA-Z]+$/");
+    $this->_formOfPayment = Regex::evaluate($formOfPayment, "/^[a-zA-Z]+$/");
   }
 
   private function setIsInstallment($isInstallment) : void {
@@ -149,15 +149,15 @@ class Transaction {
   }
 
   private function setQtdeInstallment($qtdeInstallment) : void {
-    $this->_qtdeInstallment = Regex::validate($qtdeInstallment, "/^[0-9]$/");
+    $this->_qtdeInstallment = Regex::evaluate($qtdeInstallment, "/^[0-9]$/");
   }
 
   private function setInstallmentPrice($installmentPrice) : void {
-    $this->_installmentPrice = Regex::validate($installmentPrice, "/^[+-]?([0-9]*[.])?[0-9]?$/");
+    $this->_installmentPrice = Regex::evaluate($installmentPrice, "/^[+-]?([0-9]*[.])?[0-9]?$/");
   }
 
   private function setAmmountPaid($ammountPaid) : void {
-    $this->_ammountPaid = Regex::validate($ammoutPaid, "/^[+-]?([0-9]*[.])?[0-9]?$/");
+    $this->_ammountPaid = Regex::evaluate($ammoutPaid, "/^[+-]?([0-9]*[.])?[0-9]?$/");
   }
 
   private function setDueDate($dueDate) : void {

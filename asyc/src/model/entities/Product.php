@@ -65,35 +65,35 @@ class Product {
   }
 
   private function setSalePrice($salePrice) : void {
-    $this->_salePrice = Regex::validate($salePrice, "/^[+-]?([0-9]*[.]?)[0-9]+$/");
+    $this->_salePrice = Regex::evaluate($salePrice, "/^[+-]?([0-9]*[.]?)[0-9]+$/");
   }
 
   private function setDescription($description) : void {
-    $this->_description = Regex::validate($description, "/^[\p{Ll}\p{Lu}\p{M}\s\.]+$/");
+    $this->_description = Regex::evaluate($description, "/^[\p{Ll}\p{Lu}\p{M}\s\.]+$/");
   }
 
   private function setModel($model) : void {
-    $this->_model = Regex::validate($model, "/^[\p{Ll}\p{Lu}\p{M}\s]+$/");
+    $this->_model = Regex::evaluate($model, "/^[\p{Ll}\p{Lu}\p{M}\s]+$/");
   }
 
   private function setBrand($brand) : void {
-    $this->_brand = Regex::validate($brand, "/^[\p{Ll}\p{Lu}\p{M}\s]+$/");
+    $this->_brand = Regex::evaluate($brand, "/^[\p{Ll}\p{Lu}\p{M}\s]+$/");
   }
 
   private function setProductCode($productCode) : void {
-    $this->_productCode = Regex::validate($productCode, "/^[a-z0-9]+$/");
+    $this->_productCode = Regex::evaluate($productCode, "/^[a-z0-9]+$/");
   }
 
   private function setBarcode($barcode) : void {
-    $this->_barcode = Regex::validate($barcode, "/^[0-9]?$/");
+    $this->_barcode = Regex::evaluate($barcode, "/^[0-9]?$/");
   }
 
   private function setWeight($weight) : void {
-    $this->_weight = Regex::validate($weight, "/^[+-]?([0-9]*[.])?[0-9]?$/");
+    $this->_weight = Regex::evaluate($weight, "/^[+-]?([0-9]*[.])?[0-9]?$/");
   }
 
   private function setValidity($validity) : void {
-    $this->_validity = Regex::validate($validity, "/^[0-9]?$/");
+    $this->_validity = Regex::evaluate($validity, "/^[0-9]?$/");
   }
 
   public function register($salePrice, $description, $model, $brand, $productCode, $barcode, $weight, $validity) : void {

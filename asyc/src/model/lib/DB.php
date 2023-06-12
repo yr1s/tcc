@@ -6,14 +6,14 @@ class DB {
   private $_host = '127.0.0.1',
   $_port = '3306',
   $_user = 'root',
-  $_password = '',
+  $_password = '.H0y$wQ/o7F3#+@t',
   $_db = 'teste_asyc',
   $_charset = 'utf8mb4',
   $_result = '',
   $_status,
   $_connection;
 
-  public function getStatus() : boolean {
+  public function getStatus() : bool {
     return $this->_status;
   }
 
@@ -139,7 +139,7 @@ class DB {
     if (!isset(self::$_instance)) { self::$_instance = new DB(); }
     
     return self::$_instance;
-   }
+  }
 
 	/* @throws \PDOException if the connection fails */
 	public function __construct() {
@@ -155,5 +155,5 @@ class DB {
 		} catch (\PDOException $exception) {
       throw new \PDOException("****Nao foi possivel se conectar com banco**** " . $exception->getMessage(), (int) $exception->getCode());
 		}
-	}
+  }
 }

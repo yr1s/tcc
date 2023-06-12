@@ -32,11 +32,11 @@ abstract class Person extends Contact {
 	}
 
   protected function setGender($gender) : void {
-		$this->_gender = Regex::validate($gender, "/^([m|f]?|[M|F]?)+$/");
+		$this->_gender = Regex::evaluate($gender, "/^([m|f]?|[M|F]?)+$/");
 	}
 
 	protected function setNationality($nationality) : void {
-		$this->_nationality = Regex::validate($nationality, "/^[\p{Ll}\p{Lu}\p{M}\s]+$/");
+		$this->_nationality = Regex::evaluate($nationality, "/^[\p{Ll}\p{Lu}\p{M}\s]+$/");
 	}
 
 	protected function setBirthdate($birthdate) : void {
@@ -44,6 +44,6 @@ abstract class Person extends Contact {
 	}
 
 	protected function setRg($RG) : void {
-		$this->_RG = Regex::validate($RG, "/^([0-9]{5,14})?$/");
+		$this->_RG = Regex::evaluate($RG, "/^([0-9]{5,14})?$/");
 	}
 }

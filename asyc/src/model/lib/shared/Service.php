@@ -49,15 +49,15 @@ abstract class Service {
   }
 
   protected function setCost($cost) : void {
-    $this->_cost = Regex::validate($cost, "/^[+-]?([0-9]*[.])?[0-9]+$/");
+    $this->_cost = Regex::evaluate($cost, "/^[+-]?([0-9]*[.])?[0-9]+$/");
   }
 
   protected function setComplaint($complaint) : void {
-    $this->_complaint = Regex::validate($complaint, "/^[\p{Ll}\p{Lu}\p{M}\s]+$/");
+    $this->_complaint = Regex::evaluate($complaint, "/^[\p{Ll}\p{Lu}\p{M}\s]+$/");
   }
 
   protected function setFormOfPayment($formOfPayment) : void {
-    $this->_formOfPayment = Regex::validate($formOfPayment, "/^[\p{Ll}\p{Lu}\p{M}\s]+$/");
+    $this->_formOfPayment = Regex::evaluate($formOfPayment, "/^[\p{Ll}\p{Lu}\p{M}\s]+$/");
   }
 
   protected function setIsInstallment($isInstallment) : void {
@@ -65,7 +65,7 @@ abstract class Service {
   }
 
   protected function setQtdeInstallment($qtdeInstallment) : void {
-    $this->_qtdeInstallment = Regex::validate($qtdeInstallment, "/^[0-9]+$/");
+    $this->_qtdeInstallment = Regex::evaluate($qtdeInstallment, "/^[0-9]+$/");
   }
 
   protected function setSituation($situation) : void {
@@ -73,10 +73,10 @@ abstract class Service {
   }
 
   protected function setStatus($status) : void {
-    $this->_status = Regex::validate($status, "/^[0-9]+$/");
+    $this->_status = Regex::evaluate($status, "/^[0-9]+$/");
   }
 
   protected function setPriority($priority) : void {
-    $this->_priority = Regex::validate($priority, "/^[0-9]+$/");
+    $this->_priority = Regex::evaluate($priority, "/^[0-9]+$/");
   }
 }

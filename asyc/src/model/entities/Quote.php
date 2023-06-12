@@ -32,7 +32,7 @@ class Quote extends Service {
   }
 
   private function setChecklist($checklist) : void {
-    $this->_checklist = Regex::validate($checklist, "/^[\p{Ll}\p{Lu}\p{M}\s\.,]+$/");
+    $this->_checklist = Regex::evaluate($checklist, "/^[\p{Ll}\p{Lu}\p{M}\s\.,]+$/");
   }
 
   private function setApprovalDate($approvalDate) : void {

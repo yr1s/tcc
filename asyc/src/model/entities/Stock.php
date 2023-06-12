@@ -41,19 +41,19 @@ class Stock {
   }
 
   private function setDescription($description) : void {
-    $this->_description = Regex::validate($description, "/^[\p{Ll}\p{Lu}\p{M}\s]+$/");
+    $this->_description = Regex::evaluate($description, "/^[\p{Ll}\p{Lu}\p{M}\s]+$/");
   }
 
   private function setCategory($category) : void {
-    $this->_category = Regex::validate($category, "/^[\p{Ll}\p{Lu}\p{M}\s]+$/");
+    $this->_category = Regex::evaluate($category, "/^[\p{Ll}\p{Lu}\p{M}\s]+$/");
   }
 
   private function setQtdeProductsStored($qtdeProductsStored) : void {
-    $this->_qtdeProductsStored = Regex::validate($qtdeProductsStored, "/^[0-9]+$/");
+    $this->_qtdeProductsStored = Regex::evaluate($qtdeProductsStored, "/^[0-9]+$/");
   }
 
   private function setLocation($location) : void {
-    $this->_location = Regex::validate($location, "/^[\p{Ll}\p{Lu}\p{M}\s]*$/");
+    $this->_location = Regex::evaluate($location, "/^[\p{Ll}\p{Lu}\p{M}\s]*$/");
   }
 
   public function register($description, $category, $qtdeProductsStored, $location) : void {

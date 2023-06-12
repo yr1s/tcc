@@ -45,19 +45,19 @@ class Employee extends Person {
 	}
 
 	private function setCivilStatus($civilStatus) : void {
-		$this->_civilStatus = Regex::validate($civilStatus, "/^[\p{Ll}\p{Lu}\p{M}\s]?$/"); 
+		$this->_civilStatus = Regex::evaluate($civilStatus, "/^[\p{Ll}\p{Lu}\p{M}\s]?$/"); 
 	}
 
 	private function setPosition($position) : void {
-		$this->_position = Regex::validate($position, "/^[\p{Ll}\p{Lu}\p{M}\s]+$/");
+		$this->_position = Regex::evaluate($position, "/^[\p{Ll}\p{Lu}\p{M}\s]+$/");
 	}
 
 	private function setCommission($commission) : void {
-		$this->_commission = (double) Regex::validate($commission, "/^[+-]?([0-9]*[.])?[0-9]+$/");
+		$this->_commission = (double) Regex::evaluate($commission, "/^[+-]?([0-9]*[.])?[0-9]+$/");
 	}
 
   private function setCpf($CPF) : void {
-		$this->_CPF = Regex::validate($CPF, "/^[0-9]{11}$/");
+		$this->_CPF = Regex::evaluate($CPF, "/^[0-9]{11}$/");
 	}
 
 	public function register($name, $telephone, $cellphone, $email, $address, $CEP, $houseNumber, $city, $neighborhood, $reference, 

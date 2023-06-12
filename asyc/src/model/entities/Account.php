@@ -53,27 +53,27 @@ class Account {
   }
 
   private function setDescription($description) : void {
-    $this->_description = Regex::validate($description, "/^[\p{Ll}\p{Lu}\p{M}\s]+$/");
+    $this->_description = Regex::evaluate($description, "/^[\p{Ll}\p{Lu}\p{M}\s]+$/");
   }
 
   private function setAccountType($accountType) : void {
-    $this->_accountType = Regex::validate($accountType, "/^[\p{Ll}\p{Lu}\p{M}\s]+$/");
+    $this->_accountType = Regex::evaluate($accountType, "/^[\p{Ll}\p{Lu}\p{M}\s]+$/");
   }
 
   private function setStatus($status) : void {
-    $this->_status = Regex::validate($status, "/^[1-2]+$/");
+    $this->_status = Regex::evaluate($status, "/^[1-2]+$/");
   }
 
   private function setOverallBalance($overallBalance) : void {
-    $this->_overallBalance = Regex::validate($overallBalance, "/^[+-]?([0-9]*[.])?[0-9]+$/");
+    $this->_overallBalance = Regex::evaluate($overallBalance, "/^[+-]?([0-9]*[.])?[0-9]+$/");
   }
 
   private function setIncome($income) : void {
-    $this->_income = Regex::validate($income, "/^[+-]?([0-9]*[.])?[0-9]+$/");
+    $this->_income = Regex::evaluate($income, "/^[+-]?([0-9]*[.])?[0-9]+$/");
   }
 
   private function setExpense($expense) : void {
-    $this->_expense = Regex::validate($expense, "/^[+-]?([0-9]*[.])?[0-9]+$/");
+    $this->_expense = Regex::evaluate($expense, "/^[+-]?([0-9]*[.])?[0-9]+$/");
   }
 
   public function register($description, $accountType, $status, $overallBalance, $income, $expense) : void {

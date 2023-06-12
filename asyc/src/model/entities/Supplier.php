@@ -34,11 +34,11 @@ class Supplier extends Contact {
   }
 
   private function setCnpj($cnpj) : void {
-    $this->_cnpj = Regex::validate($cnpj, "/^([0-9]{14})+$/");
+    $this->_cnpj = Regex::evaluate($cnpj, "/^([0-9]{14})+$/");
   }
 
   private function setDescription($description) : void {
-    $this->_description = Regex::validate($description, "/^([\p{Ll}\p{Lu}\p{M}.,\s]+)?$/");
+    $this->_description = Regex::evaluate($description, "/^([\p{Ll}\p{Lu}\p{M}.,\s]+)?$/");
   }
 
   public function register($name, $telephone, $cellphone, $email, $cnpj, $address, $cep, $houseNumber, $city, $neighborhood, $reference, $description) : void {

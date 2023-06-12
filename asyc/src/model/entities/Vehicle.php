@@ -53,27 +53,27 @@ class Vehicle {
   }
 
   private function setModel($model) : void {
-    $this->_model = Regex::validate($model, "/^[\p{Ll}\p{Lu}\p{M}\s\.]+$/");
+    $this->_model = Regex::evaluate($model, "/^[\p{Ll}\p{Lu}\p{M}\s\.]+$/");
   }
 
   private function setBrand($brand) : void {
-    $this->_brand = Regex::validate($brand, "/^[\p{Ll}\p{Lu}\p{M}0-9\s\.]+$/");
+    $this->_brand = Regex::evaluate($brand, "/^[\p{Ll}\p{Lu}\p{M}0-9\s\.]+$/");
   }
 
   private function setColor($color) : void {
-    $this->_color = Regex::validate($color, "/^[\p{Ll}\p{Lu}\p{M}\s]+$/");
+    $this->_color = Regex::evaluate($color, "/^[\p{Ll}\p{Lu}\p{M}\s]+$/");
   }
 
   private function setLicensePlate($licensePlate) : void {
-    $this->_licensePlate = $Regex::validate($licensePlate, "/^([\p{Lu}0-9]{7})+$/");
+    $this->_licensePlate = $Regex::evaluate($licensePlate, "/^([\p{Lu}0-9]{7})+$/");
   }
 
   private function setMileage($mileage) : void {
-    $this->_mileage = Regex::validate($mileage, "/^[+-]?([0-9]*[.])?[0-9]+$/");
+    $this->_mileage = Regex::evaluate($mileage, "/^[+-]?([0-9]*[.])?[0-9]+$/");
   }
 
   private function setDescription($description) : void {
-    $this->_description = Regex::validate($description, "/^[\p{Ll}\p{Lu}\p{M}\s\.]+$/");
+    $this->_description = Regex::evaluate($description, "/^[\p{Ll}\p{Lu}\p{M}\s\.]+$/");
   }
 
   public function register($model, $brand, $color, $licensePlate, $mileage, $description) : void {
