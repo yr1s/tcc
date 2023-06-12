@@ -109,7 +109,7 @@ class Transaction {
   }
 
   private function setDescription($description) : void {
-    $this->_description = Regex::evaluate($description, "/^[\p{Ll}\p{Lu}\p{M}\s\.,]+$/");
+    $this->_description = Regex::evaluate($description, "/^[\p{Lu}\p{Ll}\p{M}+-,!\s\.'0-9]+$/u");
   }
 
   private function setTransactionType($transctionType) : void {

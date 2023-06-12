@@ -49,7 +49,7 @@ class ServiceOrder extends Service {
   }
 
   private function setResponsibleTechnician($responsibleTechnician) {
-    $this->_responsibleTechnician = Regex::evaluate($responsibleTechnician, "/^[\p{Ll}\p{Lu}\p{M}\s]+$/");
+    $this->_responsibleTechnician = Regex::evaluate($responsibleTechnician, "/^[\p{Lu}\p{Ll}\p{M}+-,!\s\.'0-9]+$/u");
   } 
 
   private function setTechnicalReport($technicalReport) : void {
@@ -133,7 +133,7 @@ class Labour {
   }
 
   private function setDescription($description) : void {
-    $this->_description = Regex::evaluate($description, "/^[\p{Ll}\p{Lu}\p{M}\s\.]+$/");
+    $this->_description = Regex::evaluate($description, "/^[\p{Lu}\p{Ll}\p{M}+-,!\s\.'0-9]+$/u");
   }
 
   private function setResponsibleTechnician($responsibleTechnician) {
@@ -202,7 +202,7 @@ class UsedProduct {
   }
 
   private function setDescription($description) : void {
-    $this->_description = Regex::evaluate($description, "/^[\p{Ll}\p{Lu}\p{M}\s\.]+$/");
+    $this->_description = Regex::evaluate($description, "/^[\p{Lu}\p{Ll}\p{M}+-,!\s\.'0-9]+$/u");
   }
 
   private function setProductCode($productCode) : void {

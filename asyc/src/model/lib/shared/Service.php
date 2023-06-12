@@ -53,7 +53,7 @@ abstract class Service {
   }
 
   protected function setComplaint($complaint) : void {
-    $this->_complaint = Regex::evaluate($complaint, "/^[\p{Ll}\p{Lu}\p{M}\s]+$/");
+    $this->_complaint = Regex::evaluate($complaint, "/^[\p{Lu}\p{Ll}\p{M}+-,!\s\.'0-9]+$/u");
   }
 
   protected function setFormOfPayment($formOfPayment) : void {

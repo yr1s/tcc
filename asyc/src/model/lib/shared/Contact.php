@@ -59,7 +59,7 @@ abstract class Contact {
 	}
 
   protected function setName($name) : void {
-    $this->_name = Regex::evaluate($name, "/^[\p{Ll}\p{Lu}\p{M}\s]+$/");	
+    $this->_name = Regex::evaluate($name, "/^[\p{Lu}\p{Ll}\p{M}\s]+$/u");	
 	}	
 
 	protected function setTelephone($telephone) : void {
@@ -95,6 +95,6 @@ abstract class Contact {
 	}
 
 	protected function setReference($reference) : void {
-		$this->_reference = Regex::evaluate($reference, "/^([\p{Ll}\p{Lu}\p{M}.,\s]+)?$/");
+		$this->_reference = Regex::evaluate($reference, "/^[\p{Lu}\p{Ll}\p{M}+-,!\s\.'0-9]+$/u");
 	} 
 }
