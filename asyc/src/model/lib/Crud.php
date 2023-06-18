@@ -7,23 +7,19 @@ class Crud {
   private static $_db = null;
 
   public static function create($table, $row) : bool {  
-    self::$_db->insert($table, $row);
-    return self::$_db->getStatus();
+    return self::$_db->insert($table, $row);
   }
 
-  public static function read($table, $columns, $conditions) : bool {
-    self::$_db->select($table, $columns, $condition);
-    return self::$_db->getStatus();
+  public static function read($table, $columns, $conditions) : array {
+    return self::$_db->select($table, $columns, $conditions);
   }
 
   public static function update($table, $updated, $conditions) : bool {
-    self::$_db->update($table, $updated, $conditions);  
-    return self::$_db->getStatus();  
+    return self::$_db->update($table, $updated, $conditions);  
   }
 
   public static function delete($table, $conditions) : bool {
-    self::$_db->delete($table, $conditions);
-    return self::$_db->getStatus();
+    return self::$_db->delete($table, $conditions);
   }
 
   public static function getConnection() : void {
