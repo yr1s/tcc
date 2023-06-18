@@ -9,11 +9,15 @@ class Regex {
   *
   * @throws new Exception if `input` is not valid
   */
-  public static function evaluate($input, $regex) : string {
-    if ((preg_match($regex, $input, $output) === 1) && (gettype($input) != "boolean")) {
-      return $output[0];
-    } else {
-      throw new InvalidArgumentException("****`$input` invalido - nao atende aos requisitos necessarios****" . PHP_EOL);
+  public static function evaluate($input, $regex) {
+    try {
+      if ((preg_match($regex, $input, $output) === 1) && (gettype($input) != "boolean")) {
+        return $output[0];
+      } else {
+        throw new InvalidArgumentException("****`$input` invalido - nao atende aos requisitos necessarios****" . PHP_EOL);
+      }
+    } catch (InvalidArgumentException) {
+      return -1;
     }
   }
 }
