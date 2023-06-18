@@ -181,5 +181,5 @@ class Transaction {
     $this->setAmmountPaid($ammountPaid);    
   }
 
-  public function __construct() { Grid::getConnection(); }
+  public function __construct() { Crud::getConnection(); }
 }
