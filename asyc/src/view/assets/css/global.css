@@ -1,0 +1,26 @@
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.required, .error {
+  color: #fa0509;
+}
+
+a {
+  color: #0077ff;
+}
+
+a:link, a:visited {
+  text-decoration: underline;
+}
+
+a:hover, a:active {
+  text-decoration: none;
+}
+
+input.submit {
+  padding: 1em;
+  border-radius: 2em;
+}
