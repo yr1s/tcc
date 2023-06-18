@@ -6,10 +6,10 @@ class DB {
   private $_host = '127.0.0.1',
   $_port = '3306',
   $_user = 'root',
-  $_password = '.H0y$wQ/o7F3#+@t',
+  $_password = '',
   $_db = 'teste_asyc',
   $_charset = 'utf8mb4',
-  $_result = '',
+  $_result,
   $_status,
   $_connection;
 
@@ -17,8 +17,12 @@ class DB {
     return $this->_status;
   }
 
-	public function insert($table, $data) : void { 
-    if (empty($data)) { return; }
+  public function getResult() {
+    return $this->_result;
+  }
+
+	public function insert($table, $data) : bool { 
+    if (empty($data)) { return false; }
 
     $fields = implode(', ' , array_keys($data));
     $values = array_values($data);
@@ -36,6 +40,8 @@ class DB {
 
     $sql = "INSERT INTO {$table} ({$fields}) VALUES({$toInsert})";
     $this->query($sql, $values);
+
+    return $this->getStatus();
 	}
 
 	public function select($table, $columns, $where = 0) : array {
@@ -48,10 +54,10 @@ class DB {
       $this->query("SELECT {$toSelect} FROM {$table}");
     }
 
-    return $this->_result;
+    return $this->getResult();
 	}
 
-	public function update($table, $data, $where) : void {
+	public function update($table, $data, $where) : bool {
     $toUpdate = "";
     $updatedValues = [];
 
@@ -72,15 +78,25 @@ class DB {
     } else {
       $this->query("UPDATE {$table} SET {$toUpdate}");
     }
+
+    return $this->getStatus();
   }
 
-	public function delete($table, $where) : void {
+  public function reindexIDAutoIncrement($table, $id, $value) : void {
+    $value = $value === "MAX" ? $this->select($table, "MAX($id)") : $value;
+    $this->query("ALTER TABLE $table AUTO_INCREMENT = ?", [$value]);
+  }
+
+	public function delete($table, $where, $id, $reindexStartingPosition) : bool {
     if ($where) {
       $baseStatement = $this->where("delete", $table, $where);
       $this->query($baseStatement['sql'], $baseStatement['values']);
     } else {
       $this->query("DELETE FROM {$table}");
     }
+    $this->reindexIDAutoIncrement($table, $id, $reindexStartingPosition);
+
+    return $this->getStatus();
   }
 
   /* Modifies a query which uses where condition */
@@ -131,7 +147,7 @@ class DB {
       throw new Exception("****Consulta falhou****");
     }
 
-    $this->_result = $statement->fetch();
+    $this->_result = $statement->fetchAll();
   }
 
 	/* Returns an instance of the class itself */
