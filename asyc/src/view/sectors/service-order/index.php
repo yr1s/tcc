@@ -1,5 +1,5 @@
 <?php
-include('asyc-topo.php');
+include('../../assets/components/header.php');
 ?>
 
 <!DOCTYPE html>
@@ -65,11 +65,109 @@ include('asyc-topo.php');
 
 
     <div class="d-flex justify-content-end mt-5 col-md-9 ms-auto me-auto">
-                <button type="button" class="btn btn-danger"  >
-                    <a href="asyc-formCliente.php" class="text-reset link-underline link-underline-opacity-0">Nova Ordem de Serviço</a>
-                </button>
-        
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#aa">
+            Nova ordem de serviço
+        </button>
+    </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="aa" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Nova ordem de serviço</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="row" action="" >
+            
+                        <div class="col-12">
+                            <label class="form-label" for="cost">Custo</label> 
+                            <input class="form-control" type="text" id="cost">
+                        </div>
+
+                        <div class="col-md-4">
+                            <label class="form-label"  for="brand">Marca</label>
+                            <input  class="form-control" type="text" id="brand">
+                        </div>
+
+                        <div class="col-md-4">
+                            <label class="form-label" for="model" >Modelo</label>
+                            <input  class="form-control" type="text" id="model">
+                        </div>
+
+                        <div class="col-md-4">
+                            <label class="form-label"  for="color">Cor</label>
+                            <input class="form-control" type="text" id="color">
+                        </div>
+            
+                        <div class="col-md-6">
+                            <label class="form-label" for="licensePlate">Placa</label>
+                            <input  class="form-control" type="text" id="lincesePlate">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label" for="mileage">Quilometragem</label>
+                            <input class="form-control" type="text" id="mileage">
+                        </div>
+
+                        <div class="col-12">
+                            <label class="form-label" for="complaint">Reclamação</label>
+                            <textarea class="form-control" id="complaint"></textarea>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label" for="responsibleTechnician">Técnico responsavel</label>
+                            <input class="form-control" type="text" id="responsibleTechnician">
+                        </div>
+                
+                        <div class="col-md-6">
+                            <label class="form-label" for="situation">Situação</label>
+                            <input class="form-control" type="text" id="situation">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label" for="status">Status de andamento de serviço</label>
+                            <select  class="form-control" id="status">
+                                <option>Entrada</option>
+                                <option>Diagnóstico pronto</option>
+                                <option>Orçamento aprovado</option>
+                                <option>Em execução</option>
+                                <option>Finalizado</option>
+                                <option>Testado</option>
+                                <option>Cliente avisado (veiculo retirado)</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class ="form-label" for="priority">Prioridade</label>
+                            <select  class="form-control" id="priority">
+                                <option>Urgente</option>
+                                <option>Medio</option>
+                                <option>Leve</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label" for="pickUpDate">Data de entrada</label>
+                            <input  class="form-control" type="date" id="pickUpDate">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label" for="closingDate">Prazo de entrega</label>
+                            <input  class="form-control" type="date" id="closingDate">
+                        </div>
+            
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">fechar</button>
+                    <button type="button" class="btn btn-primary">Cadastrar nova ordem de serviço</button>
+                </div>
+            </div>
         </div>
+    </div>
     
     
     <div class="card mt-5 col-md-9 ms-auto me-auto">
