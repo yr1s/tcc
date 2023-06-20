@@ -11,9 +11,9 @@
     <div class="navbar navbar-dark bg-dark navbar-expand-sm container-fluid">
       <nav class="d-flex justify-content-between align-items-center collapse navbar-collapse bg-dark navar-expand-sm container-fluid">
         <div class="d-flex justify-content-center">
-          <img class="img-fluid" src="../../assets/images/mini-logo.png">
+          <img class="img-fluid" src="../../assets/images/logo.png">
         </div> 
-        <ul class="navbar-nav">
+        <ul class="navbar-nav me-auto ms-auto">
           <li class="nav-item me-2">
             <a href="../../sectors/service-order/" class="nav-link ">Ordens de serviço</a>
           </li>
@@ -28,6 +28,14 @@
           </li>
           <li class="nav-item me-2 ">
             <a href="../../sectors/financing/" class="nav-link ">Finaceiro</a>
+          </li>
+          <li class="nav-item dropdown">
+            <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fa-solid fa-user fa-lg" style="color: #ff0000;"></i>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <li><a class="dropdown-item" href="#">Sair</a></li>
+            </ul>
           </li>
         </ul>
       </nav>
